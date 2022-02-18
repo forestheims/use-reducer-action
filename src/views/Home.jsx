@@ -8,9 +8,14 @@ export default function Home() {
       case "add":
         return [...items, { id: items.length, text: payload }];
       case "delete":
-        return items.filter((item) => item.id !== payload.id);
+        return items.filter((item) => item.id !== payload);
       case "edit":
-        return items.map((item) => item.id === payload.entry.id);
+        const newItems = items.map((item) => {
+          if (item.id !== payload.id) {
+            return item;
+          }
+        });
+        return [...newItems, { id: payload.id }];
       default:
         throw new Error("reducer does not have a type case for that action");
     }

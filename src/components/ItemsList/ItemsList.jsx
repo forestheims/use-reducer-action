@@ -7,8 +7,8 @@ export default function ItemsList({ items, deleteItem, editItem }) {
       {items.map((item) => (
         <div key={item.id}>
           <div>{item.text}</div>
-          <button onClick={deleteItem}>delete</button>
-          <button onClick={editItem}>edit</button>
+          <button onClick={() => deleteItem(item.id)}>delete</button>
+          <button onClick={() => editItem(item)}>edit</button>
         </div>
       ))}
     </div>
