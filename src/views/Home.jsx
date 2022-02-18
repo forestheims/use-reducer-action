@@ -3,18 +3,16 @@ import ItemControls from "../components/ItemControls/ItemControls";
 import ItemsList from "../components/ItemsList/ItemsList";
 
 export default function Home() {
-  const itemsReducer = (state, { type, payload }) => {
+  const itemsReducer = (items, { type, payload }) => {
     switch (type) {
       case "add":
-        return {
-          items: [...state.items, { id: items.length, content: payload }],
-        };
+        return [...items, { id: items.length, text: payload }];
       case "delete":
-        return { items: items.filter((item) => item.id !== payload.id) };
+        return items.filter((item) => item.id !== payload.id);
       case "edit":
-        return { items: items.map((item) => item.id === payload.item.id) };
+        return items.map((item) => item.id === payload.entry.id);
       default:
-        throw new Error();
+        throw new Error("reducer does not have a type case for that action");
     }
   };
 
@@ -34,10 +32,10 @@ export default function Home() {
     });
   };
 
-  const editItem = (item) => {
+  const editItem = (entry) => {
     dispatch({
       type: "edit",
-      payload: item,
+      payload: entry,
     });
   };
 
