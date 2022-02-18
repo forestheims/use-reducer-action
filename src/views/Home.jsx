@@ -6,13 +6,20 @@ export default function Home() {
   const itemsReducer = (items, { type, payload }) => {
     switch (type) {
       case "add":
-        return [...items, { id: items.length, text: payload }];
+        return [...items, { id: items.length, text: payload, edit: false }];
       case "delete":
         return items.filter((item) => item.id !== payload);
       case "edit":
         return items.map((item) => {
           if (item.id === payload.id) {
-            return { id: payload.id, text: payload.text };
+            return { id: payload.id, text: payload.text, edit: false };
+          }
+          return item;
+        });
+      case "set-edit":
+        return items.map((item) => {
+          if (item.id === payload) {
+            return { ...item, edit: true };
           }
           return item;
         });
@@ -44,10 +51,22 @@ export default function Home() {
     });
   };
 
+  const setEdit = (id) => {
+    dispatch({
+      type: "set-edit",
+      payload: id,
+    });
+  };
+
   return (
     <>
       <ItemControls addItem={addItem} />
-      <ItemsList items={items} deleteItem={deleteItem} editItem={editItem} />
+      <ItemsList
+        items={items}
+        deleteItem={deleteItem}
+        editItem={editItem}
+        setEdit={setEdit}
+      />
     </>
   );
 }
