@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./ItemsList.css";
 
 export default function ItemsList({ items, deleteItem, editItem, setEdit }) {
   const [newText, setNewText] = useState("");
@@ -7,7 +8,7 @@ export default function ItemsList({ items, deleteItem, editItem, setEdit }) {
   return (
     <div className="items-list">
       {items.map((item) => (
-        <div key={item.id}>
+        <div key={item.id} className="item">
           <div>{item.text}</div>
           <button onClick={() => deleteItem(item.id)}>delete</button>
           {item.edit ? (

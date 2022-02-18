@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import "./ItemControls.css";
 
 export default function ItemControls({ addItem }) {
   const [entry, setEntry] = useState("");
   return (
-    <div>
+    <div className="controls">
       <label>New Item:</label>
       <input
         type="text"
