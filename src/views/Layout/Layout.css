@@ -19,3 +19,11 @@ header {
   text-align: center;
   font-size: 2rem;
 }
+
+footer img {
+  border-radius: 19px;
+}
+
+footer img:hover {
+  background-color: #7fffd4;
+}

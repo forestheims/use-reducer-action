@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import App from "./App";
+import Header from "./Header";
 
-test("behavioral tests: create, read, update, delete items on the list", () => {
-  render(<App />);
+test("renders learn react link", () => {
+  render(<Header />);
   const linkElement = screen.getByText(/shopping list/i);
   expect(linkElement).toBeInTheDocument();
 });

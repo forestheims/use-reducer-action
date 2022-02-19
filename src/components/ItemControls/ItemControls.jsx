@@ -11,7 +11,14 @@ export default function ItemControls({ addItem }) {
         value={entry}
         onChange={(e) => setEntry(e.target.value)}
       />
-      <button onClick={() => addItem(entry)}>Save Item</button>
+      <button
+        onClick={() => {
+          addItem(entry);
+          setEntry("");
+        }}
+      >
+        Add Item
+      </button>
     </div>
   );
 }

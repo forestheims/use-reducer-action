@@ -21,7 +21,7 @@ export default function Home() {
           if (item.id === payload) {
             return { ...item, edit: true };
           }
-          return item;
+          return { ...item, edit: false };
         });
       default:
         throw new Error("reducer does not have a type case for that action");
