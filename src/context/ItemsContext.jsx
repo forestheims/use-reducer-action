@@ -23,6 +23,8 @@ export function ItemsProvider({ children }) {
           }
           return { ...item, edit: false };
         });
+      case "clear":
+        return [];
       default:
         throw new Error("reducer does not have a type case for that action");
     }
@@ -58,7 +60,13 @@ export function ItemsProvider({ children }) {
     });
   };
 
-  const contextValue = { items, addItem, deleteItem, editItem, setEdit };
+  const clear = () => {
+    dispatch({
+      type: "clear",
+    });
+  };
+
+  const contextValue = { items, addItem, deleteItem, editItem, setEdit, clear };
 
   return (
     <ItemsContext.Provider value={contextValue}>
