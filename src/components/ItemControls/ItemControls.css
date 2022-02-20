@@ -1,0 +1,25 @@
+.controls {
+  display: flex;
+  gap: 15px;
+  margin: 25px;
+  font-size: 1.5rem;
+  color: aliceblue;
+}
+
+.controls button {
+  background-color: bisque;
+  border-radius: 5px;
+  border: none;
+}
+
+.controls input[type="text"] {
+  background-color: aliceblue;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  padding: 5px;
+  border: 1px solid slategrey;
+}
+
+.controls button:hover {
+  cursor: pointer;
+}

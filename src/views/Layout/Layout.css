@@ -1,0 +1,29 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+  width: 100vw;
+  background-color: #254752;
+}
+
+main {
+  height: stretch;
+}
+
+header {
+  color: #f0f8ff;
+  background-color: #3d353b;
+  width: 100vw;
+  text-align: center;
+  font-size: 2rem;
+}
+
+footer img {
+  border-radius: 19px;
+}
+
+footer img:hover {
+  background-color: #7fffd4;
+}
