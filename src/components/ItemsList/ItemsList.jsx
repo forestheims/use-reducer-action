@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useItems } from "../../context/ItemsContext";
 import "./ItemsList.css";
 
-export default function ItemsList({ items, deleteItem, editItem, setEdit }) {
+export default function ItemsList() {
   const [newText, setNewText] = useState("");
+  const { items, deleteItem, editItem, setEdit } = useItems();
 
   return (
     <div className="items-list">
